@@ -15,4 +15,12 @@ defmodule ElixirPlayground do
   def hello do
     :world
   end
+
+  @doc """
+      iex> ElixirPlayground.cheese()
+      :block
+  """
+  def cheese do
+    :block
+  end
 end

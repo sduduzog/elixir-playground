@@ -8,7 +8,10 @@ defmodule ElixirPlayground.MixProject do
       elixir: "~> 1.12",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      preferred_cli_env: [espec: :test],
+      preferred_cli_env: [
+        espec: :test,
+        "test.watch": :test
+      ]
     ]
   end
 
@@ -23,6 +26,7 @@ defmodule ElixirPlayground.MixProject do
   defp deps do
     [
       {:espec, "~> 1.9.1", only: :test},
+      {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false}
     ]
   end
 end
