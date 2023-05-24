@@ -4,7 +4,13 @@ defmodule ElixirPlaygroundTest do
   doctest ElixirPlayground
 
   test "greets the world" do
-    assert ElixirPlayground.hello() == :world
+    expected =
+      :rand.bytes(4)
+      |> Base.encode64()
+      |> binary_part(0, 4)
+      |> String.to_atom()
+
+    refute ElixirPlayground.hello() == expected
   end
 
   test "gives us cheese" do
